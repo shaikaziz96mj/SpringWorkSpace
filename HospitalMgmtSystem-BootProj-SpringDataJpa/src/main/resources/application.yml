@@ -4,7 +4,10 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql:///hospitalservice
     username: root
-    password: root  jpa:    hibernate:      ddl-auto: update    show-sql: true    properties:
+    password: root
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:      maximum-pool-size: 20
+      minimum-idle: 10  jpa:    hibernate:      ddl-auto: update    show-sql: true    properties:
       dialect: org.hibernate.dialect.MySQL5Dialect  mvc:    view:      prefix: /WEB-INF/pages/
       suffix: .jsp
 server:  port: 6060
