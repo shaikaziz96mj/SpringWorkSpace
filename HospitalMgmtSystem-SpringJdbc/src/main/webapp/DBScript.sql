@@ -1,18 +1,13 @@
-CREATE TABLE public.hospitalenquiry
-(
-    pid integer NOT NULL,
-    pname character varying COLLATE pg_catalog."default",
-    age integer,
-    gender character varying COLLATE pg_catalog."default",
-    address character varying COLLATE pg_catalog."default",
-    problem character varying COLLATE pg_catalog."default",
-    doctor character varying COLLATE pg_catalog."default",
-    contactnumber integer,
-    wardnumber integer,
-    CONSTRAINT hospitalenquiry_pkey PRIMARY KEY (pid)
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE public.hospitalenquiry
-    OWNER to postgres;
+CREATE TABLE "SCOTT"."HOSPITALENQUIRY" 
+   (	"PID" NUMBER(5,0) NOT NULL ENABLE, 
+	"PNAME" VARCHAR2(20 BYTE), 
+	"AGE" NUMBER(3,0), 
+	"GENDER" VARCHAR2(10 BYTE), 
+	"ADDRESS" VARCHAR2(20 BYTE), 
+	"PROBLEM" VARCHAR2(20 BYTE), 
+	"DOCTOR" VARCHAR2(20 BYTE), 
+	"CONTACTNUMBER" LONG, 
+	"WARDNUMBER" NUMBER(5,0), 
+	 CONSTRAINT "HOSPITALENQUIRY_PK" PRIMARY KEY ("PID")
+	 
+CREATE SEQUENCE  "SCOTT"."PATIENT_SEQ"  MINVALUE 1016 MAXVALUE 99999 INCREMENT BY 1 START WITH 1016 CACHE 20 NOORDER  NOCYCLE ; 
