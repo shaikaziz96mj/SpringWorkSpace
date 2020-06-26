@@ -1,0 +1,10 @@
+spring:
+  main:
+    banner-mode: off  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///hospitalservice
+    username: root
+    password: root  jpa:    hibernate:      ddl-auto: update    show-sql: true    properties:
+      dialect: org.hibernate.dialect.MySQL5Dialect  mvc:    view:      prefix: /WEB-INF/pages/
+      suffix: .jsp
+server:  port: 6060
