@@ -9,14 +9,14 @@ import com.hospital.model.PatientEntity;
 
 public interface HospitalRepo extends JpaRepository<PatientEntity, Integer> {
 
-	/*@Modifying
-	@Query("Update PatientEntity set patientName=:name,age=:age,gender=:gen,"
-			+ "patientAddress=:address,patientProblem=:problem,doctorName=:doc,"
-			+ "contactNumber:=contact,wardNumber:=ward WHERE patientId=:id")
-	public int updatePatientRecord(@Param("name")String patientName,
+	@Modifying
+	@Query("Update PatientEntity set pname=:name,age=:age,gender=:gen,"
+			+ "address=:addrs,problem=:prob,doctor=:doc,"
+			+ "contactNumber=:con,wardNumber=:ward WHERE pid=:id")
+	public int updatePatientRecord(@Param("name")String pname,
 			@Param("age")int age,@Param("gen")String gender,
-			@Param("address")String patientAddress,@Param("problem")String patientProblem,
-			@Param("doc")String doctorName,@Param("contact")int contactNumber,
-			@Param("ward")int wardNumber,@Param("id")int id);*/
+			@Param("addrs")String address,@Param("prob")String problem,
+			@Param("doc")String doctor,@Param("con")long contactNumber,
+			@Param("ward")int wardNumber,@Param("id")int id);
 	
 }

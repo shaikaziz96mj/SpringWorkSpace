@@ -59,7 +59,7 @@ public class HospitalMgmtServiceImpl implements HospitalMgmtService {
 		return dto;
 	}
 
-	/*@Override
+	@Override
 	public String editPatientDetails(PatientDetailsDTO dto) {
 		PatientEntity entity=null;
 		int count=0;
@@ -67,9 +67,9 @@ public class HospitalMgmtServiceImpl implements HospitalMgmtService {
 		entity=new PatientEntity();
 		BeanUtils.copyProperties(dto, entity);
 		//use repository
-		count=repo.updatePatientRecord(entity.getPatientName(), entity.getAge(), entity.getGender(), entity.getPatientAddress(),entity.getPatientProblem() , entity.getDoctorName(),entity.getContactNumber(),entity.getWardNumber(),entity.getPatientId());
+		count=repo.updatePatientRecord(entity.getPname(), entity.getAge(), entity.getGender(), entity.getAddress(),entity.getProblem() , entity.getDoctor(),entity.getContactNumber(),entity.getWardNumber(),entity.getPid());
 		return (count==0)?"Record not updated":"Record Updated";
-	}*/
+	}
 
 	@Override
 	public String insertPatient(PatientDetailsDTO dto) {

@@ -43,7 +43,7 @@ public class HospitalCURDOperationsMainController {
 		return "list_patients";
 	}
 
-	/*@GetMapping("/edit_form.cpp")
+	@GetMapping("/edit_form.cpp")
 	public String displayEditFormPage(@ModelAttribute(name = "patientCmd")PatientDetailsCommand cmd,HttpServletRequest req){
 	
 		int id=0;
@@ -79,7 +79,7 @@ public class HospitalCURDOperationsMainController {
 		map.put("result",resultMsg);
 		
 		return "list_patients";
-	}*/
+	}
 	
 	@GetMapping("/insert_patient.cpp")
 	public String showInsertForm(@ModelAttribute(name="patientCmd") PatientDetailsCommand cmd) {
