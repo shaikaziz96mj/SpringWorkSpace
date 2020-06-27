@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hospital.command.PatientDetailsCommand;
 import com.hospital.dto.PatientDetailsDTO;
@@ -87,7 +88,7 @@ public class HospitalCURDOperationsMainController {
 	}
 	
 	@PostMapping("/insert_patient.cpp")
-	public String insertPatientRecord(Map<String,Object> map,@ModelAttribute(name="patientCmd") PatientDetailsCommand cmd,BindingResult errors){
+	public String insertPatientRecord(RedirectAttributes attributes,@ModelAttribute(name="patientCmd") PatientDetailsCommand cmd,BindingResult errors){
 		
 		PatientDetailsDTO dto=null;
 		String resultMsg=null;
@@ -101,9 +102,14 @@ public class HospitalCURDOperationsMainController {
 		resultMsg=service.insertPatient(dto);
 		listDTO=service.fetchPatientDetails();
 		
-		map.put("result",resultMsg);
-		map.put("listDTO",listDTO);
+		attributes.addFlashAttribute("result",resultMsg);
+		attributes.addFlashAttribute("listDTO",listDTO);
 		
+		return "redirect:/post_insert_patient.cpp";
+	}
+	
+	@GetMapping("/post_insert_patient.cpp")
+	public String avoidDoublePost() {
 		return "list_patients";
 	}
 	
